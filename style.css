@@ -2,7 +2,6 @@
 
 :root {
   --vermelho: #e50914;
-  --vermelho-escuro: #760000;
   --preto: #070707;
   --branco: #f7f7f7;
 }
@@ -105,6 +104,8 @@ body {
 }
 
 .botao-principal {
+  width: fit-content;
+  margin-top: 26px;
   padding: 17px 25px;
 }
 
@@ -127,28 +128,32 @@ body {
 }
 
 h1 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: clamp(16px, 2.3vw, 36px);
   margin: 0;
   color: var(--vermelho);
   font-family: "Anton", Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
   font-size: clamp(6.4rem, 16.8vw, 16.5rem);
   font-weight: 400;
   letter-spacing: 0.015em;
-  line-height: 0.7;
+  line-height: 0.72;
   text-transform: uppercase;
 
-  /* Contorno preto ao redor das letras */
-  -webkit-text-stroke: 3px #000000;
+  /* Contorno preto mais espesso */
+  -webkit-text-stroke: 6px #000000;
   paint-order: stroke fill;
 
-  /* Profundidade e efeito de alto relevo */
+  /* Sombra preta + profundidade vermelha */
   text-shadow:
-    1px 1px 0 #a30404,
-    2px 2px 0 #880303,
-    3px 3px 0 #6e0202,
-    4px 4px 0 #550000,
-    5px 5px 0 #410000,
-    6px 6px 0 #2b0000,
-    12px 16px 24px rgba(0, 0, 0, 0.9);
+    0 0 2px #000000,
+    2px 2px 0 #910000,
+    4px 4px 0 #750000,
+    6px 6px 0 #590000,
+    8px 8px 0 #3b0000,
+    12px 15px 0 #130000,
+    18px 24px 30px rgba(0, 0, 0, 0.95);
 }
 
 .linha {
@@ -162,11 +167,6 @@ h1 {
   font-size: clamp(0.88rem, 1.4vw, 1.05rem);
   font-weight: 600;
   line-height: 1.7;
-}
-
-.botao-principal {
-  width: fit-content;
-  margin-top: 26px;
 }
 
 .rolar {
@@ -241,9 +241,15 @@ h1 {
   }
 
   h1 {
+    gap: 18px;
     font-size: clamp(4.5rem, 22vw, 8.2rem);
-    line-height: 0.73;
-    -webkit-text-stroke: 2px #000000;
+    line-height: 0.76;
+    -webkit-text-stroke: 4px #000000;
+    text-shadow:
+      0 0 2px #000000,
+      2px 2px 0 #800000,
+      4px 4px 0 #550000,
+      7px 10px 14px rgba(0, 0, 0, 0.95);
   }
 
   .descricao {
