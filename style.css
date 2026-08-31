@@ -26,7 +26,7 @@ body {
   font-family: "Montserrat", Arial, Helvetica, sans-serif;
 }
 
-/* Página inicial */
+/* Homepage */
 
 .hero {
   --movimento-x: 0px;
@@ -141,7 +141,7 @@ body {
   transform: translateY(-3px);
 }
 
-/* Segunda página: Comece Agora */
+/* Página de guias */
 
 .pagina-comece {
   background: #03080b;
@@ -151,14 +151,12 @@ body {
   position: relative;
   isolation: isolate;
   min-height: 100svh;
-  display: flex;
-  align-items: center;
   overflow: hidden;
-  padding: 48px clamp(28px, 8vw, 150px);
+  padding: 90px clamp(28px, 8vw, 150px) 80px;
   background:
-    radial-gradient(circle at 100% 100%, rgba(40, 215, 245, 0.64) 0%, rgba(10, 99, 125, 0.32) 18%, rgba(3, 15, 20, 0.12) 42%, transparent 66%),
-    radial-gradient(circle at 94% 12%, rgba(25, 173, 208, 0.24), transparent 35%),
-    linear-gradient(125deg, #020607 0%, #040b0f 58%, #071b23 100%);
+    radial-gradient(circle at 100% 100%, rgba(40, 215, 245, 0.58) 0%, rgba(10, 99, 125, 0.27) 19%, rgba(3, 15, 20, 0.10) 44%, transparent 68%),
+    radial-gradient(circle at 94% 12%, rgba(25, 173, 208, 0.18), transparent 35%),
+    linear-gradient(125deg, #020607 0%, #040b0f 60%, #071b23 100%);
 }
 
 .comece::before {
@@ -167,42 +165,9 @@ body {
   z-index: -1;
   inset: 0;
   background:
-    linear-gradient(90deg, rgba(0, 0, 0, 0.34), transparent 65%),
-    radial-gradient(circle at 78% 75%, rgba(144, 242, 255, 0.17), transparent 22%);
+    linear-gradient(90deg, rgba(0, 0, 0, 0.36), transparent 65%),
+    radial-gradient(circle at 78% 75%, rgba(144, 242, 255, 0.15), transparent 22%);
   pointer-events: none;
-}
-
-.comece-conteudo {
-  max-width: 900px;
-}
-
-.etiqueta {
-  margin: 0 0 20px;
-  color: var(--ciano);
-  font-size: 0.72rem;
-  font-weight: 900;
-  letter-spacing: 0.24em;
-}
-
-.comece h1 {
-  font-size: clamp(5rem, 14vw, 14rem);
-  line-height: 0.76;
-  color: #d8f8ff;
-  -webkit-text-stroke: 2px rgba(2, 25, 33, 0.85);
-  text-shadow:
-    2px 2px 0 rgba(30, 135, 161, 0.55),
-    5px 5px 0 rgba(5, 48, 61, 0.85),
-    12px 16px 34px rgba(0, 0, 0, 0.85),
-    0 0 34px rgba(40, 215, 245, 0.18);
-}
-
-.texto-comece {
-  max-width: 520px;
-  margin: 36px 0 0;
-  color: var(--cinza-claro);
-  font-size: clamp(0.92rem, 1.4vw, 1.08rem);
-  font-weight: 600;
-  line-height: 1.8;
 }
 
 .voltar {
@@ -222,6 +187,104 @@ body {
   transform: translateX(-4px);
 }
 
+.menu-guias {
+  position: relative;
+  z-index: 1;
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.etiqueta {
+  margin: 0 0 16px;
+  color: var(--ciano);
+  font-size: 0.72rem;
+  font-weight: 900;
+  letter-spacing: 0.24em;
+}
+
+.comece h1 {
+  font-size: clamp(4.2rem, 9vw, 9rem);
+  line-height: 0.78;
+  color: #d8f8ff;
+  -webkit-text-stroke: 2px rgba(2, 25, 33, 0.85);
+  text-shadow:
+    2px 2px 0 rgba(30, 135, 161, 0.55),
+    5px 5px 0 rgba(5, 48, 61, 0.85),
+    12px 16px 34px rgba(0, 0, 0, 0.85),
+    0 0 34px rgba(40, 215, 245, 0.18);
+}
+
+.cartoes-guias {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+  margin-top: 42px;
+}
+
+.cartao-guia {
+  position: relative;
+  min-height: 315px;
+  display: flex;
+  flex-direction: column;
+  padding: 28px;
+  border: 1px solid rgba(156, 236, 255, 0.22);
+  background: linear-gradient(145deg, rgba(15, 38, 49, 0.76), rgba(3, 12, 16, 0.72));
+  color: var(--branco);
+  overflow: hidden;
+  text-decoration: none;
+  transition: border-color 200ms ease, background 200ms ease, transform 200ms ease, box-shadow 200ms ease;
+}
+
+.cartao-guia::before {
+  content: "";
+  position: absolute;
+  inset: auto -60px -110px auto;
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(40, 215, 245, 0.25), transparent 67%);
+  pointer-events: none;
+}
+
+.cartao-guia:hover {
+  border-color: var(--ciano);
+  background: linear-gradient(145deg, rgba(18, 61, 76, 0.86), rgba(3, 15, 20, 0.82));
+  box-shadow: 0 16px 42px rgba(0, 0, 0, 0.38), 0 0 32px rgba(40, 215, 245, 0.12);
+  transform: translateY(-8px);
+}
+
+.numero-guia {
+  color: var(--ciano);
+  font-size: 0.72rem;
+  font-weight: 900;
+  letter-spacing: 0.14em;
+}
+
+.cartao-guia h2 {
+  margin: 40px 0 14px;
+  font-family: "Anton", Impact, sans-serif;
+  font-size: clamp(1.65rem, 2.3vw, 2.25rem);
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  line-height: 1;
+}
+
+.cartao-guia p {
+  max-width: 290px;
+  margin: 0;
+  color: var(--cinza-claro);
+  font-size: 0.84rem;
+  font-weight: 600;
+  line-height: 1.65;
+}
+
+.seta-guia {
+  margin-top: auto;
+  color: var(--ciano);
+  font-size: 2rem;
+  line-height: 1;
+}
+
 .rodape-comece {
   position: absolute;
   right: clamp(28px, 8vw, 150px);
@@ -231,6 +294,16 @@ body {
   font-size: 0.63rem;
   font-weight: 800;
   letter-spacing: 0.2em;
+}
+
+@media (max-width: 900px) {
+  .cartoes-guias {
+    grid-template-columns: 1fr;
+  }
+
+  .cartao-guia {
+    min-height: 240px;
+  }
 }
 
 @media (max-width: 700px) {
@@ -252,27 +325,26 @@ body {
   }
 
   .comece {
-    align-items: center;
-    padding: 42px 30px;
+    padding: 86px 24px 90px;
     background:
-      radial-gradient(circle at 100% 100%, rgba(40, 215, 245, 0.53), rgba(8, 72, 91, 0.24) 27%, transparent 64%),
+      radial-gradient(circle at 100% 100%, rgba(40, 215, 245, 0.52), rgba(8, 72, 91, 0.24) 27%, transparent 64%),
       linear-gradient(135deg, #020607 0%, #06151b 100%);
   }
 
   .comece h1 {
-    font-size: clamp(4.8rem, 21vw, 8rem);
-  }
-
-  .rodape-comece {
-    left: 30px;
-    right: auto;
-    bottom: 24px;
-    font-size: 0.52rem;
+    font-size: clamp(4rem, 18vw, 6.8rem);
   }
 
   .voltar {
     top: 26px;
-    left: 30px;
+    left: 24px;
+  }
+
+  .rodape-comece {
+    left: 24px;
+    right: auto;
+    bottom: 24px;
+    font-size: 0.52rem;
   }
 }
 
@@ -283,7 +355,8 @@ body {
 
   .imagem-fundo,
   .botao-principal,
-  .voltar {
+  .voltar,
+  .cartao-guia {
     transition: none;
   }
 }
