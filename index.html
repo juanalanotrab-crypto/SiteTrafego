@@ -3,22 +3,50 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Academia: força, foco e resultado.">
-  <title>Academia | Bem-vindo</title>
+  <meta name="description" content="Sua academia: força, foco e resultado.">
+  <title>Sua Academia | Bem-vindo</title>
 
-  >
+  <link rel="stylesheet" href="./style.css">
 </head>
 
 <body>
-  <main class="hero">
-    <div class="fundo-academia" aria-hidden="true"></div>
-    <div class="camada-escura" aria-hidden="true"></div>
+  <main class="hero" id="hero">
+    <div class="imagem-fundo" id="imagemFundo" aria-hidden="true"></div>
+    <div class="filtro-preto" aria-hidden="true"></div>
+    <div class="vinheta" aria-hidden="true"></div>
 
-    <section class="conteudo-principal">
-      <p class="marca">SUA ACADEMIA</p>
-      <h1>BEM-<br>VINDO</h1>
-      <p class="frase">FORÇA. FOCO. RESULTADO.</p>
+    <header class="topo">
+      <a class="logo" href="#" aria-label="Página inicial da Sua Academia">
+        <span class="logo-marca">SUA</span> ACADEMIA
+      </a>
+
+      <a class="botao-topo" href="#matricula">MATRIQUE-SE</a>
+    </header>
+
+    <section class="mensagem" aria-labelledby="titulo-principal">
+      <p class="sobretitulo">SUPERE OS SEUS LIMITES</p>
+
+      <h1 id="titulo-principal">
+        <span class="linha">BEM</span>
+        <span class="linha">VINDO</span>
+      </h1>
+
+      <p class="descricao">
+        Onde disciplina se transforma em resultado.
+      </p>
+
+      <a class="botao-principal" href="#matricula">COMECE AGORA</a>
     </section>
+
+    <p class="rolar" aria-hidden="true">ROLE PARA EXPLORAR <span>↓</span></p>
   </main>
+
+  <section class="matricula" id="matricula">
+    <p class="sobretitulo escuro">SEU NOVO COMEÇO</p>
+    <h2>Treine para a sua melhor versão.</h2>
+    <p>Adicione aqui seu WhatsApp, endereço, planos e informações da academia.</p>
+  </section>
+
+  <script src="./script.js"></script>
 </body>
 </html>
