@@ -34,7 +34,6 @@ body {
   background: #0b0b0b;
 }
 
-/* Foto de um AMBIENTE de academia: máquinas e pesos */
 .imagem-fundo {
   position: absolute;
   z-index: -3;
@@ -48,7 +47,6 @@ body {
   will-change: transform;
 }
 
-/* Escurece o ambiente, preservando a leitura do texto */
 .filtro-preto {
   position: absolute;
   z-index: -2;
@@ -58,7 +56,6 @@ body {
     linear-gradient(0deg, rgba(0, 0, 0, 0.78), transparent 55%);
 }
 
-/* Sombra nas bordas para uma aparência mais cinematográfica */
 .vinheta {
   position: absolute;
   z-index: -1;
@@ -129,14 +126,6 @@ body {
   padding: 35px 0 100px;
 }
 
-.sobretitulo {
-  margin: 0 0 18px;
-  color: #f2f2f2;
-  font-size: 0.72rem;
-  font-weight: 900;
-  letter-spacing: 0.26em;
-}
-
 h1 {
   margin: 0;
   color: var(--vermelho);
@@ -146,6 +135,12 @@ h1 {
   letter-spacing: 0.015em;
   line-height: 0.7;
   text-transform: uppercase;
+
+  /* Contorno preto ao redor das letras */
+  -webkit-text-stroke: 3px #000000;
+  paint-order: stroke fill;
+
+  /* Profundidade e efeito de alto relevo */
   text-shadow:
     1px 1px 0 #a30404,
     2px 2px 0 #880303,
@@ -153,7 +148,7 @@ h1 {
     4px 4px 0 #550000,
     5px 5px 0 #410000,
     6px 6px 0 #2b0000,
-    12px 16px 24px rgba(0, 0, 0, 0.85);
+    12px 16px 24px rgba(0, 0, 0, 0.9);
 }
 
 .linha {
@@ -248,11 +243,7 @@ h1 {
   h1 {
     font-size: clamp(4.5rem, 22vw, 8.2rem);
     line-height: 0.73;
-  }
-
-  .sobretitulo {
-    font-size: 0.58rem;
-    letter-spacing: 0.18em;
+    -webkit-text-stroke: 2px #000000;
   }
 
   .descricao {
