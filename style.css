@@ -38,12 +38,11 @@ body {
   z-index: -3;
   inset: -70px;
   background-image: url("https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=2200&q=85");
-  background-position: center center;
+  background-position: center;
   background-size: cover;
   filter: grayscale(100%) contrast(125%) brightness(58%) blur(2px);
   transform: scale(1.1) translate(var(--movimento-x), var(--movimento-y));
   transition: transform 180ms ease-out;
-  will-change: transform;
 }
 
 .filtro-preto {
@@ -51,8 +50,8 @@ body {
   z-index: -2;
   inset: 0;
   background:
-    linear-gradient(90deg, rgba(0, 0, 0, 0.86) 0%, rgba(0, 0, 0, 0.45) 57%, rgba(0, 0, 0, 0.76) 100%),
-    linear-gradient(0deg, rgba(0, 0, 0, 0.78), transparent 55%);
+    linear-gradient(90deg, rgba(0, 0, 0, 0.86), rgba(0, 0, 0, 0.40), rgba(0, 0, 0, 0.78)),
+    linear-gradient(0deg, rgba(0, 0, 0, 0.80), transparent 60%);
 }
 
 .vinheta {
@@ -109,12 +108,6 @@ body {
   padding: 17px 25px;
 }
 
-.botao-topo:hover,
-.botao-principal:hover {
-  background: #b7070f;
-  transform: translateY(-3px);
-}
-
 .mensagem {
   position: relative;
   z-index: 1;
@@ -129,35 +122,35 @@ body {
 
 h1 {
   display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: clamp(16px, 2.3vw, 36px);
+  flex-direction: row;
+  align-items: center;
+  gap: clamp(30px, 4vw, 75px);
   margin: 0;
   color: var(--vermelho);
-  font-family: "Anton", Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
-  font-size: clamp(6.4rem, 16.8vw, 16.5rem);
+  font-family: "Anton", Impact, sans-serif;
+  font-size: clamp(4rem, 12vw, 12.5rem);
   font-weight: 400;
   letter-spacing: 0.015em;
-  line-height: 0.72;
+  line-height: 0.9;
   text-transform: uppercase;
 
-  /* Contorno preto mais espesso */
-  -webkit-text-stroke: 6px #000000;
+  /* Contorno preto bem espesso */
+  -webkit-text-stroke: 7px #000000;
   paint-order: stroke fill;
 
-  /* Sombra preta + profundidade vermelha */
+  /* Alto relevo e sombra */
   text-shadow:
-    0 0 2px #000000,
-    2px 2px 0 #910000,
-    4px 4px 0 #750000,
-    6px 6px 0 #590000,
-    8px 8px 0 #3b0000,
-    12px 15px 0 #130000,
-    18px 24px 30px rgba(0, 0, 0, 0.95);
+    0 0 0 #000000,
+    2px 2px 0 #8a0000,
+    4px 4px 0 #650000,
+    6px 6px 0 #440000,
+    9px 10px 0 #220000,
+    16px 20px 30px rgba(0, 0, 0, 0.95);
 }
 
 .linha {
-  display: block;
+  display: inline-block;
+  white-space: nowrap;
 }
 
 .descricao {
@@ -188,7 +181,6 @@ h1 {
   margin-top: 8px;
   color: var(--vermelho);
   font-size: 1.2rem;
-  line-height: 1;
 }
 
 .matricula {
@@ -216,7 +208,7 @@ h1 {
   color: var(--vermelho);
 }
 
-@media (max-width: 650px) {
+@media (max-width: 700px) {
   .topo,
   .mensagem {
     width: min(100% - 36px, 1400px);
@@ -235,21 +227,18 @@ h1 {
     font-size: 0.57rem;
   }
 
+  h1 {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+    font-size: clamp(4.5rem, 23vw, 8.2rem);
+    line-height: 0.78;
+    -webkit-text-stroke: 5px #000000;
+  }
+
   .mensagem {
     min-height: calc(100svh - 78px);
     padding-bottom: 80px;
-  }
-
-  h1 {
-    gap: 18px;
-    font-size: clamp(4.5rem, 22vw, 8.2rem);
-    line-height: 0.76;
-    -webkit-text-stroke: 4px #000000;
-    text-shadow:
-      0 0 2px #000000,
-      2px 2px 0 #800000,
-      4px 4px 0 #550000,
-      7px 10px 14px rgba(0, 0, 0, 0.95);
   }
 
   .descricao {
