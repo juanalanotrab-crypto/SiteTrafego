@@ -1,96 +1,273 @@
-@import url("https://fonts.googleapis.com/css2?family=Anton&family=Montserrat:wght@600;700;800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Anton&family=Montserrat:wght@400;600;700;800;900&display=swap");
 
 :root {
-  --vermelho: #e10600;
+  --vermelho: #e50914;
+  --vermelho-escuro: #760000;
+  --preto: #070707;
+  --branco: #f7f7f7;
 }
 
 * {
   box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   margin: 0;
-  background: #080808;
-  color: white;
-  font-family: "Montserrat", Arial, sans-serif;
+  min-width: 320px;
+  overflow-x: hidden;
+  background: var(--preto);
+  color: var(--branco);
+  font-family: "Montserrat", Arial, Helvetica, sans-serif;
 }
 
 .hero {
+  --movimento-x: 0px;
+  --movimento-y: 0px;
   position: relative;
-  min-height: 100vh;
-  display: grid;
-  place-items: center;
+  isolation: isolate;
+  min-height: 100svh;
   overflow: hidden;
+  background: #0b0b0b;
 }
 
-.fundo-academia {
+/* Foto de um AMBIENTE de academia: máquinas e pesos */
+.imagem-fundo {
   position: absolute;
-  inset: -35px;
-  z-index: -2;
-  background-image: url("https://pplx-res.cloudinary.com/image/upload/pplx_search_images/e1381c3c9f945c3fe78c7b1adadf001822a0439c.jpg");
+  z-index: -3;
+  inset: -70px;
+  background-image: url("https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=2200&q=85");
+  background-position: center center;
   background-size: cover;
-  background-position: center;
-  filter: grayscale(100%) blur(5px) contrast(120%);
-  transform: scale(1.08);
+  filter: grayscale(100%) contrast(125%) brightness(58%) blur(2px);
+  transform: scale(1.1) translate(var(--movimento-x), var(--movimento-y));
+  transition: transform 180ms ease-out;
+  will-change: transform;
 }
 
-.camada-escura {
+/* Escurece o ambiente, preservando a leitura do texto */
+.filtro-preto {
+  position: absolute;
+  z-index: -2;
+  inset: 0;
+  background:
+    linear-gradient(90deg, rgba(0, 0, 0, 0.86) 0%, rgba(0, 0, 0, 0.45) 57%, rgba(0, 0, 0, 0.76) 100%),
+    linear-gradient(0deg, rgba(0, 0, 0, 0.78), transparent 55%);
+}
+
+/* Sombra nas bordas para uma aparência mais cinematográfica */
+.vinheta {
   position: absolute;
   z-index: -1;
   inset: 0;
-  background: linear-gradient(
-    90deg,
-    rgba(0, 0, 0, 0.85),
-    rgba(0, 0, 0, 0.38),
-    rgba(0, 0, 0, 0.72)
-  );
+  box-shadow: inset 0 0 150px 45px rgba(0, 0, 0, 0.88);
+  pointer-events: none;
 }
 
-.conteudo-principal {
-  width: min(100% - 40px, 1100px);
-  text-align: center;
+.topo {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: min(100% - 64px, 1400px);
+  margin: 0 auto;
+  padding: 30px 0;
 }
 
-.marca,
-.frase {
-  margin: 0;
-  font-size: 0.75rem;
-  font-weight: 800;
-  letter-spacing: 0.28em;
+.logo {
+  color: #ffffff;
+  font-size: 0.85rem;
+  font-weight: 900;
+  letter-spacing: 0.14em;
+  text-decoration: none;
 }
 
-.marca {
-  margin-bottom: 18px;
+.logo-marca {
+  color: var(--vermelho);
+}
+
+.botao-topo,
+.botao-principal {
+  display: inline-block;
+  border: 2px solid var(--vermelho);
+  background: var(--vermelho);
+  color: #ffffff;
+  font-size: 0.7rem;
+  font-weight: 900;
+  letter-spacing: 0.14em;
+  text-decoration: none;
+  transition: transform 180ms ease, background 180ms ease;
+}
+
+.botao-topo {
+  padding: 12px 17px;
+}
+
+.botao-principal {
+  padding: 17px 25px;
+}
+
+.botao-topo:hover,
+.botao-principal:hover {
+  background: #b7070f;
+  transform: translateY(-3px);
+}
+
+.mensagem {
+  position: relative;
+  z-index: 1;
+  width: min(100% - 64px, 1400px);
+  min-height: calc(100svh - 100px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 0 auto;
+  padding: 35px 0 100px;
+}
+
+.sobretitulo {
+  margin: 0 0 18px;
+  color: #f2f2f2;
+  font-size: 0.72rem;
+  font-weight: 900;
+  letter-spacing: 0.26em;
 }
 
 h1 {
   margin: 0;
   color: var(--vermelho);
-  font-family: "Anton", Impact, sans-serif;
-  font-size: clamp(5rem, 18vw, 13rem);
+  font-family: "Anton", Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  font-size: clamp(6.4rem, 16.8vw, 16.5rem);
   font-weight: 400;
-  letter-spacing: 0.02em;
-  line-height: 0.78;
+  letter-spacing: 0.015em;
+  line-height: 0.7;
+  text-transform: uppercase;
   text-shadow:
-    1px 1px 0 #910000,
-    2px 2px 0 #760000,
-    3px 3px 0 #5c0000,
-    4px 4px 0 #430000,
-    8px 12px 24px rgba(0, 0, 0, 0.9);
+    1px 1px 0 #a30404,
+    2px 2px 0 #880303,
+    3px 3px 0 #6e0202,
+    4px 4px 0 #550000,
+    5px 5px 0 #410000,
+    6px 6px 0 #2b0000,
+    12px 16px 24px rgba(0, 0, 0, 0.85);
 }
 
-.frase {
-  margin-top: 34px;
+.linha {
+  display: block;
 }
 
-@media (max-width: 600px) {
-  h1 {
-    font-size: clamp(4rem, 22vw, 7rem);
+.descricao {
+  max-width: 500px;
+  margin: 34px 0 0;
+  color: #f0f0f0;
+  font-size: clamp(0.88rem, 1.4vw, 1.05rem);
+  font-weight: 600;
+  line-height: 1.7;
+}
+
+.botao-principal {
+  width: fit-content;
+  margin-top: 26px;
+}
+
+.rolar {
+  position: absolute;
+  z-index: 2;
+  bottom: 24px;
+  left: 50%;
+  margin: 0;
+  color: #eeeeee;
+  font-size: 0.62rem;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  text-align: center;
+  transform: translateX(-50%);
+}
+
+.rolar span {
+  display: block;
+  margin-top: 8px;
+  color: var(--vermelho);
+  font-size: 1.2rem;
+  line-height: 1;
+}
+
+.matricula {
+  padding: 110px 24px;
+  background: #f5f5f5;
+  color: #131313;
+  text-align: center;
+}
+
+.matricula h2 {
+  max-width: 850px;
+  margin: 0 auto;
+  font-size: clamp(2rem, 4vw, 4rem);
+  line-height: 1.05;
+}
+
+.matricula p:last-child {
+  max-width: 650px;
+  margin: 22px auto 0;
+  color: #454545;
+  line-height: 1.8;
+}
+
+.escuro {
+  color: var(--vermelho);
+}
+
+@media (max-width: 650px) {
+  .topo,
+  .mensagem {
+    width: min(100% - 36px, 1400px);
   }
 
-  .marca,
-  .frase {
-    font-size: 0.62rem;
+  .topo {
+    padding-top: 22px;
+  }
+
+  .logo {
+    font-size: 0.64rem;
+  }
+
+  .botao-topo {
+    padding: 10px 11px;
+    font-size: 0.57rem;
+  }
+
+  .mensagem {
+    min-height: calc(100svh - 78px);
+    padding-bottom: 80px;
+  }
+
+  h1 {
+    font-size: clamp(4.5rem, 22vw, 8.2rem);
+    line-height: 0.73;
+  }
+
+  .sobretitulo {
+    font-size: 0.58rem;
     letter-spacing: 0.18em;
+  }
+
+  .descricao {
+    margin-top: 28px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .imagem-fundo,
+  .botao-topo,
+  .botao-principal {
+    transition: none;
   }
 }
