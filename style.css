@@ -1,9 +1,12 @@
 @import url("https://fonts.googleapis.com/css2?family=Anton&family=Montserrat:wght@400;600;700;800;900&display=swap");
 
 :root {
-  --vermelho: #e50914;
-  --preto: #070707;
-  --branco: #f7f7f7;
+  --ciano: #28d7f5;
+  --azul-claro: #9cecff;
+  --azul-escuro: #071d2a;
+  --preto: #05080a;
+  --branco: #f4fbff;
+  --cinza-claro: #d5e5eb;
 }
 
 * {
@@ -30,7 +33,7 @@ body {
   isolation: isolate;
   min-height: 100svh;
   overflow: hidden;
-  background: #0b0b0b;
+  background: var(--preto);
 }
 
 .imagem-fundo {
@@ -40,25 +43,27 @@ body {
   background-image: url("https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=2200&q=85");
   background-position: center;
   background-size: cover;
-  filter: grayscale(100%) contrast(125%) brightness(58%) blur(2px);
+  filter: grayscale(100%) contrast(125%) brightness(45%) blur(2px);
   transform: scale(1.1) translate(var(--movimento-x), var(--movimento-y));
   transition: transform 180ms ease-out;
+  will-change: transform;
 }
 
+/* Camada azulada sobre o ambiente de academia */
 .filtro-preto {
   position: absolute;
   z-index: -2;
   inset: 0;
   background:
-    linear-gradient(90deg, rgba(0, 0, 0, 0.86), rgba(0, 0, 0, 0.40), rgba(0, 0, 0, 0.78)),
-    linear-gradient(0deg, rgba(0, 0, 0, 0.80), transparent 60%);
+    linear-gradient(90deg, rgba(1, 9, 14, 0.90) 0%, rgba(4, 29, 42, 0.60) 54%, rgba(0, 8, 13, 0.88) 100%),
+    linear-gradient(0deg, rgba(0, 4, 7, 0.86), rgba(0, 55, 78, 0.14) 55%, rgba(0, 0, 0, 0.30));
 }
 
 .vinheta {
   position: absolute;
   z-index: -1;
   inset: 0;
-  box-shadow: inset 0 0 150px 45px rgba(0, 0, 0, 0.88);
+  box-shadow: inset 0 0 170px 50px rgba(0, 0, 0, 0.92);
   pointer-events: none;
 }
 
@@ -74,7 +79,7 @@ body {
 }
 
 .logo {
-  color: #ffffff;
+  color: var(--branco);
   font-size: 0.85rem;
   font-weight: 900;
   letter-spacing: 0.14em;
@@ -82,20 +87,20 @@ body {
 }
 
 .logo-marca {
-  color: var(--vermelho);
+  color: var(--ciano);
 }
 
 .botao-topo,
 .botao-principal {
   display: inline-block;
-  border: 2px solid var(--vermelho);
-  background: var(--vermelho);
-  color: #ffffff;
+  border: 1px solid var(--ciano);
+  background: var(--ciano);
+  color: #031016;
   font-size: 0.7rem;
   font-weight: 900;
   letter-spacing: 0.14em;
   text-decoration: none;
-  transition: transform 180ms ease, background 180ms ease;
+  transition: transform 180ms ease, background 180ms ease, box-shadow 180ms ease;
 }
 
 .botao-topo {
@@ -106,6 +111,13 @@ body {
   width: fit-content;
   margin-top: 26px;
   padding: 17px 25px;
+}
+
+.botao-topo:hover,
+.botao-principal:hover {
+  background: var(--azul-claro);
+  box-shadow: 0 0 24px rgba(40, 215, 245, 0.55);
+  transform: translateY(-3px);
 }
 
 .mensagem {
@@ -124,28 +136,27 @@ h1 {
   display: flex;
   flex-direction: row;
   align-items: center;
-  gap: clamp(30px, 4vw, 75px);
+  gap: clamp(28px, 3.6vw, 66px);
   margin: 0;
-  color: var(--vermelho);
-  font-family: "Anton", Impact, sans-serif;
+  color: var(--azul-claro);
+  font-family: "Anton", Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
   font-size: clamp(4rem, 12vw, 12.5rem);
   font-weight: 400;
   letter-spacing: 0.015em;
   line-height: 0.9;
   text-transform: uppercase;
 
-  /* Contorno preto bem espesso */
-  -webkit-text-stroke: 7px #000000;
+  /* Contorno escuro discreto, para separar o texto do fundo */
+  -webkit-text-stroke: 3px #06131a;
   paint-order: stroke fill;
 
-  /* Alto relevo e sombra */
+  /* Profundidade suave e brilho ciano */
   text-shadow:
-    0 0 0 #000000,
-    2px 2px 0 #8a0000,
-    4px 4px 0 #650000,
-    6px 6px 0 #440000,
-    9px 10px 0 #220000,
-    16px 20px 30px rgba(0, 0, 0, 0.95);
+    1px 1px 0 #326676,
+    2px 2px 0 #1b3f4c,
+    4px 4px 0 #0d2731,
+    7px 9px 16px rgba(0, 0, 0, 0.74),
+    0 0 22px rgba(40, 215, 245, 0.20);
 }
 
 .linha {
@@ -156,7 +167,7 @@ h1 {
 .descricao {
   max-width: 500px;
   margin: 34px 0 0;
-  color: #f0f0f0;
+  color: var(--cinza-claro);
   font-size: clamp(0.88rem, 1.4vw, 1.05rem);
   font-weight: 600;
   line-height: 1.7;
@@ -168,7 +179,7 @@ h1 {
   bottom: 24px;
   left: 50%;
   margin: 0;
-  color: #eeeeee;
+  color: var(--cinza-claro);
   font-size: 0.62rem;
   font-weight: 800;
   letter-spacing: 0.18em;
@@ -179,14 +190,14 @@ h1 {
 .rolar span {
   display: block;
   margin-top: 8px;
-  color: var(--vermelho);
+  color: var(--ciano);
   font-size: 1.2rem;
 }
 
 .matricula {
   padding: 110px 24px;
-  background: #f5f5f5;
-  color: #131313;
+  background: #edf7fa;
+  color: #08151b;
   text-align: center;
 }
 
@@ -200,12 +211,12 @@ h1 {
 .matricula p:last-child {
   max-width: 650px;
   margin: 22px auto 0;
-  color: #454545;
+  color: #3b535d;
   line-height: 1.8;
 }
 
 .escuro {
-  color: var(--vermelho);
+  color: #087b96;
 }
 
 @media (max-width: 700px) {
@@ -230,10 +241,10 @@ h1 {
   h1 {
     flex-direction: column;
     align-items: flex-start;
-    gap: 20px;
+    gap: 18px;
     font-size: clamp(4.5rem, 23vw, 8.2rem);
     line-height: 0.78;
-    -webkit-text-stroke: 5px #000000;
+    -webkit-text-stroke: 2px #06131a;
   }
 
   .mensagem {
