@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Anton&family=Montserrat:wght@400;600;700;800;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Anton&family=Montserrat:wght@400;500;600;700;800;900&display=swap");
 
 :root {
   --ciano: #28d7f5;
@@ -111,37 +111,83 @@ body {
   white-space: nowrap;
 }
 
-.descricao {
-  max-width: 500px;
-  margin: 34px 0 0;
-  color: var(--cinza-claro);
-  font-size: clamp(0.88rem, 1.4vw, 1.05rem);
-  font-weight: 600;
-  line-height: 1.7;
+/* Formulário de login */
+
+.form-login {
+  width: min(100%, 500px);
+  display: grid;
+  gap: 15px;
+  margin-top: 34px;
+  padding: 25px;
+  border: 1px solid rgba(156, 236, 255, 0.27);
+  background: rgba(3, 14, 20, 0.68);
+  box-shadow: 0 16px 42px rgba(0, 0, 0, 0.34);
+  backdrop-filter: blur(12px);
 }
 
-.botao-principal {
-  display: inline-block;
-  width: fit-content;
-  margin-top: 26px;
-  padding: 17px 25px;
+.campo-login {
+  display: grid;
+  gap: 8px;
+}
+
+.campo-login label {
+  color: var(--azul-claro);
+  font-size: 0.65rem;
+  font-weight: 900;
+  letter-spacing: 0.16em;
+}
+
+.campo-login input {
+  width: 100%;
+  padding: 15px 16px;
+  border: 1px solid rgba(156, 236, 255, 0.26);
+  outline: none;
+  background: rgba(0, 0, 0, 0.36);
+  color: var(--branco);
+  font: inherit;
+  font-size: 0.9rem;
+  transition: border-color 180ms ease, box-shadow 180ms ease, background 180ms ease;
+}
+
+.campo-login input::placeholder {
+  color: rgba(213, 229, 235, 0.55);
+}
+
+.campo-login input:focus {
+  border-color: var(--ciano);
+  background: rgba(0, 22, 31, 0.68);
+  box-shadow: 0 0 0 3px rgba(40, 215, 245, 0.14);
+}
+
+.botao-login {
+  width: 100%;
+  margin-top: 5px;
+  padding: 16px 20px;
   border: 1px solid var(--ciano);
   background: var(--ciano);
   color: #031016;
+  cursor: pointer;
+  font-family: inherit;
   font-size: 0.7rem;
   font-weight: 900;
-  letter-spacing: 0.14em;
-  text-decoration: none;
+  letter-spacing: 0.16em;
   transition: transform 180ms ease, background 180ms ease, box-shadow 180ms ease;
 }
 
-.botao-principal:hover {
+.botao-login:hover {
   background: var(--azul-claro);
-  box-shadow: 0 0 24px rgba(40, 215, 245, 0.55);
+  box-shadow: 0 0 24px rgba(40, 215, 245, 0.45);
   transform: translateY(-3px);
 }
 
-/* Página de guias */
+.botao-login:focus-visible,
+.voltar:focus-visible,
+.cartao-guia:focus-visible {
+  outline: 3px solid var(--ciano);
+  outline-offset: 4px;
+}
+
+/* Páginas de guias */
 
 .pagina-comece {
   background: #03080b;
@@ -329,6 +375,7 @@ body {
 @media (max-width: 700px) {
   .mensagem {
     width: min(100% - 36px, 1400px);
+    padding: 70px 0 40px;
   }
 
   .mensagem h1 {
@@ -340,8 +387,9 @@ body {
     -webkit-text-stroke: 2px #06131a;
   }
 
-  .descricao {
+  .form-login {
     margin-top: 28px;
+    padding: 20px;
   }
 
   .comece {
@@ -384,7 +432,7 @@ body {
   }
 
   .imagem-fundo,
-  .botao-principal,
+  .botao-login,
   .voltar,
   .cartao-guia {
     transition: none;
