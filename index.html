@@ -21,11 +21,35 @@
         <span class="linha">VINDO</span>
       </h1>
 
-      <p class="descricao">
-        Onde disciplina se transforma em resultado.
-      </p>
+      <form class="form-login" action="./comece-agora.html" method="get">
+        <div class="campo-login">
+          <label for="usuario">USUÁRIO</label>
+          <input
+            id="usuario"
+            name="usuario"
+            type="text"
+            placeholder="Digite seu usuário"
+            autocomplete="username"
+            required
+          >
+        </div>
 
-      <a class="botao-principal" href="./comece-agora.html">COMECE AGORA</a>
+        <div class="campo-login">
+          <label for="senha">SENHA</label>
+          <input
+            id="senha"
+            name="senha"
+            type="password"
+            placeholder="Digite sua senha"
+            autocomplete="current-password"
+            required
+          >
+        </div>
+
+        <button class="botao-login" type="submit">
+          ENTRAR
+        </button>
+      </form>
     </section>
   </main>
 
