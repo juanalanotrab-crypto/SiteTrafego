@@ -226,11 +226,14 @@ body {
   min-height: 315px;
   display: flex;
   flex-direction: column;
+  align-items: center;
+  justify-content: center;
   padding: 28px;
   border: 1px solid rgba(156, 236, 255, 0.22);
   background: linear-gradient(145deg, rgba(15, 38, 49, 0.76), rgba(3, 12, 16, 0.72));
   color: var(--branco);
   overflow: hidden;
+  text-align: center;
   text-decoration: none;
   transition: border-color 200ms ease, background 200ms ease, transform 200ms ease, box-shadow 200ms ease;
 }
@@ -254,6 +257,9 @@ body {
 }
 
 .numero-guia {
+  position: absolute;
+  top: 28px;
+  left: 28px;
   color: var(--ciano);
   font-size: 0.72rem;
   font-weight: 900;
@@ -261,25 +267,18 @@ body {
 }
 
 .cartao-guia h2 {
-  margin: 40px 0 14px;
+  margin: 0;
   font-family: "Anton", Impact, sans-serif;
   font-size: clamp(1.65rem, 2.3vw, 2.25rem);
   font-weight: 400;
   letter-spacing: 0.02em;
-  line-height: 1;
-}
-
-.cartao-guia p {
-  max-width: 290px;
-  margin: 0;
-  color: var(--cinza-claro);
-  font-size: 0.84rem;
-  font-weight: 600;
-  line-height: 1.65;
+  line-height: 1.05;
 }
 
 .seta-guia {
-  margin-top: auto;
+  position: absolute;
+  right: 28px;
+  bottom: 24px;
   color: var(--ciano);
   font-size: 2rem;
   line-height: 1;
@@ -338,6 +337,16 @@ body {
   .voltar {
     top: 26px;
     left: 24px;
+  }
+
+  .numero-guia {
+    top: 22px;
+    left: 22px;
+  }
+
+  .seta-guia {
+    right: 22px;
+    bottom: 20px;
   }
 
   .rodape-comece {
